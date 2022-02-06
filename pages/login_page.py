@@ -1,7 +1,7 @@
-
-from autotets.pages.base_page import BasePage
-from config import TestData
+from pages.base_page import BasePage
+from pages.config import TestData
 from selenium.webdriver.common.by import By
+
 
 class Login(BasePage):
     LOCATOR_USER_NAME = "//*[@id='user-name']"
@@ -13,8 +13,6 @@ class Login(BasePage):
         self.driver.find_element(By.XPATH, self.LOCATOR_USER_PASS).send_keys(TestData.user_password)
         self.driver.find_element(By.XPATH, self.LOCATOR_LOGIN_BUTTON).click()
 
-
     def get_main_page(self):
-        from autotets.pages.main_page import MainPage
+        from pages.main_page import MainPage
         return MainPage(self.driver)
-

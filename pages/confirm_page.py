@@ -1,7 +1,7 @@
 import time
 
-from autotets.pages.base_page import BasePage
-from config import TestData
+from pages.base_page import BasePage
+from pages.config import TestData
 from selenium.webdriver.common.by import By
 
 
@@ -17,15 +17,13 @@ class ConfirmPage(BasePage):
         self.driver.find_element(By.XPATH, self.LOCATOR_LAST_NAME).send_keys(TestData.LAST_NAME)
         self.driver.find_element(By.XPATH, self.LOCATOR_ZIP_CODE).send_keys(TestData.ZIP_code)
 
-
     def continue_button(self):
         self.driver.find_element(By.XPATH, self.LOCATOR_CONTINUE_BUTTON).click()
-
 
     def finish_button(self):
         self.driver.find_element(By.XPATH, self.LOCATOR_FINISH_BUTTON).click()
         time.sleep(5)
 
     def get_back_home_page(self):
-        from autotets.pages.back_home_page import BackHomePage
+        from pages.back_home_page import BackHomePage
         return BackHomePage(self.driver)

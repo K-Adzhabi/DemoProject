@@ -1,9 +1,8 @@
-
-from autotets.pages.base_page import BasePage
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class ShopingCart(BasePage):
+class ShoppingCart(BasePage):
     LOCATOR_PRODUCT_SHOP = "//*[text()='Sauce Labs Backpack']"
     LOCATOR_back_to_product_button = "//button[@class='btn btn_secondary back btn_large inventory_"\
                                      "details_back_button']"
@@ -22,6 +21,6 @@ class ShopingCart(BasePage):
         self.driver.find_element(By.XPATH, self.LOCATOR_CHECKOUT_BUTTON).click()
 
     def get_confirm_page(self):
-        from autotets.pages.confirm_page import ConfirmPage
+        from pages.confirm_page import ConfirmPage
         return ConfirmPage(self.driver)
 
